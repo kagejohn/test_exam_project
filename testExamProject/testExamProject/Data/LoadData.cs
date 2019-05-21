@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using testExamProject.Models;
 
-namespace testExamProject.TestData
+namespace testExamProject.Data
 {
     public class LoadTestData
     {

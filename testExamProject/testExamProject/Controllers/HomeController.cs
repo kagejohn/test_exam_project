@@ -10,7 +10,7 @@ namespace testExamProject.Controllers
     {
         public ActionResult Index()
         {
-            //var test = new TestData.CreateTestData(100000);
+            //var test = new Data.CreateTestData(100000);
             return View();
         }
 

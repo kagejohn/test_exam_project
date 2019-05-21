@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace testExamProject.TestData
+namespace testExamProject.Data
 {
     public class CreateTestData
     {
@@ -106,9 +106,8 @@ namespace testExamProject.TestData
 
                     try
                     {
-                        command.CommandText = "INSERT INTO Course (Name, Participants, Duration, AddedDate, TeacherId) VALUES (@Name, @Participants, @Duration, @AddedDate, @TeacherId);";
+                        command.CommandText = "INSERT INTO Course (Name, Duration, AddedDate, TeacherId) VALUES (@Name, @Duration, @AddedDate, @TeacherId);";
                         command.Parameters.Add("@Name", SqlDbType.NVarChar).Value = RandomString(10);
-                        command.Parameters.Add("@Participants", SqlDbType.Int).Value = _random.Next(20);
                         command.Parameters.Add("@Duration", SqlDbType.Int).Value = _random.Next(20, 30);
                         command.Parameters.Add("@AddedDate", SqlDbType.Date).Value = RandomDate().Date;
                         command.Parameters.Add("@TeacherId", SqlDbType.Int).Value = _random.Next(1, _teachersAmount);
