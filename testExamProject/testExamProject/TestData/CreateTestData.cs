@@ -106,10 +106,11 @@ namespace testExamProject.TestData
 
                     try
                     {
-                        command.CommandText = "INSERT INTO Course (Name, Participants, Duration, TeacherId) VALUES (@Name, @Participants, @Duration, @TeacherId);";
+                        command.CommandText = "INSERT INTO Course (Name, Participants, Duration, AddedDate, TeacherId) VALUES (@Name, @Participants, @Duration, @AddedDate, @TeacherId);";
                         command.Parameters.Add("@Name", SqlDbType.NVarChar).Value = RandomString(10);
                         command.Parameters.Add("@Participants", SqlDbType.Int).Value = _random.Next(20);
                         command.Parameters.Add("@Duration", SqlDbType.Int).Value = _random.Next(20, 30);
+                        command.Parameters.Add("@AddedDate", SqlDbType.Date).Value = RandomDate().Date;
                         command.Parameters.Add("@TeacherId", SqlDbType.Int).Value = _random.Next(1, _teachersAmount);
 
 
@@ -233,6 +234,15 @@ namespace testExamProject.TestData
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[_random.Next(s.Length)]).ToArray());
+        }
+
+        private DateTime RandomDate()
+        {
+            Random random = new Random();
+            TimeSpan newTimeSpan = new TimeSpan(random.Next(0, 3*365), 0, 0, 0);
+            DateTime newDate = DateTime.Today.AddYears(-3) + newTimeSpan;
+
+            return newDate;
         }
     }
 }
