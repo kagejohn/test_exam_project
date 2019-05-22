@@ -11,7 +11,8 @@ namespace testExamProject.Models
         public string Name { get; set; }
         public int Participants { get; set; }
         public int Duration { get; set; }
-        public Teacher Teacher { get; set; }
+        public DateTime? AddedDate { get; set; }
+        public int TeacherId { get; set; }
         public List<Student> Students { get; set; }
     }
 }

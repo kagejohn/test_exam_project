@@ -175,6 +175,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\CreateStudent.cshtml" />
+    <Content Include="Views\Home\CreateTeacher.cshtml" />
+    <Content Include="Views\Home\CreateCourse.cshtml" />
+    <Content Include="Views\Home\CreateSubject.cshtml" />
+    <Content Include="Views\Home\JoinCourse.cshtml" />
+    <Content Include="Views\Home\ConnectCourseToSubject.cshtml" />
+    <Content Include="Views\Home\DisplaySchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

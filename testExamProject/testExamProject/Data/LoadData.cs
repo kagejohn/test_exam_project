@@ -8,9 +8,67 @@ using testExamProject.Models;
 
 namespace testExamProject.Data
 {
-    public class LoadTestData
+    public class LoadData
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+        public List<Course> GetCourses()
+        {
+            List<Course> courses = new List<Course>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand { Connection = connection };
+
+                try
+                {
+                    command.CommandText = "select * from Course;";
+
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Course course = new Course();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            if (reader.GetName(i) == "Id")
+                            {
+                                course.Id = (int)reader.GetValue(i);
+                            }
+                            if (reader.GetName(i) == "Name")
+                            {
+                                course.Name = (string)reader.GetValue(i);
+                            }
+                            if (reader.GetName(i) == "Participants")
+                            {
+                                course.Participants = (int)reader.GetValue(i);
+                            }
+                            if (reader.GetName(i) == "Duration")
+                            {
+                                course.Duration = (int)reader.GetValue(i);
+                            }
+                            if (reader.GetName(i) == "AddedDate")
+                            {
+                                course.AddedDate = (DateTime)reader.GetValue(i);
+                            }
+                            if (reader.GetName(i) == "TeacherId")
+                            {
+                                course.TeacherId = (int)reader.GetValue(i);
+                            }
+                        }
+                        courses.Add(course);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Commit Exception Type: {0}", ex.GetType());
+                    Console.WriteLine("  Message: {0}", ex.Message);
+                }
+            }
+
+            return courses;
+        }
 
         public List<Teacher> GetTeachersForCoursesThatWillNotStart(int id)
         {

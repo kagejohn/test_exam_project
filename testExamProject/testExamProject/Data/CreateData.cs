@@ -9,7 +9,7 @@ namespace testExamProject.Data
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        private void CreateStudents(string name, int age)
+        public void CreateStudents(string name, int age)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -38,7 +38,7 @@ namespace testExamProject.Data
             }
         }
 
-        private void CreateTeachers(string name, string education, bool teaching)
+        public void CreateTeachers(string name, string education, bool teaching)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -68,12 +68,12 @@ namespace testExamProject.Data
             }
         }
 
-        private void CreateCourses(string name, int duration, int teacherId)
+        public void CreateCourses(string name, int duration, int teacherId)
         {
             CreateCourses(name, duration, DateTime.Today, teacherId);
         }
 
-        private void CreateCourses(string name, int duration, DateTime addedDate, int teacherId)
+        public void CreateCourses(string name, int duration, DateTime addedDate, int teacherId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -104,7 +104,7 @@ namespace testExamProject.Data
             }
         }
 
-        private void CreateCourseParticipations(int studentId, int courseId, bool paid)
+        public void CreateCourseParticipations(int studentId, int courseId, bool paid)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -134,7 +134,7 @@ namespace testExamProject.Data
             }
         }
 
-        private void CreateSubjects(string name)
+        public void CreateSubjects(string name)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -162,7 +162,7 @@ namespace testExamProject.Data
             }
         }
 
-        private void CreateCourseSubjects(int subjectId, int courseId)
+        public void CreateCourseSubjects(int subjectId, int courseId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
