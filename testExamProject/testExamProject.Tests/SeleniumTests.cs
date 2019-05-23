@@ -11,7 +11,7 @@ using OpenQA.Selenium.Support.UI;
 namespace testExamProject.Tests
 {
     [TestClass]
-    class SeleniumTests
+    public class SeleniumTests
     {
         private ChromeDriver _driver;
         private WebDriverWait _wait;
@@ -23,11 +23,11 @@ namespace testExamProject.Tests
             _driver = new ChromeDriver();
             _driver.Navigate().GoToUrl(url);
             _driver.Manage().Window.Maximize();
-            _driver.FindElement(By.Id("CourseID")).SendKeys("2");
-            _driver.FindElement(By.Id("SubjectID")).SendKeys("3");
-            _driver.FindElement(By.ClassName("Button")).Click();
+            _driver.FindElement(By.Id("CourseId")).SendKeys("3");
+            _driver.FindElement(By.Id("SubjectId")).SendKeys("3");
+            _driver.FindElement(By.ClassName("btn")).Click();
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 5));
-            _wait.Until(wt => wt.FindElement(By.Id("Success:")).Equals("True"));
+            _wait.Until(wt => wt.FindElement(By.Id("Success")).Text == "True");
             _driver.Close();
             _driver.Dispose();
         }
@@ -42,10 +42,10 @@ namespace testExamProject.Tests
             _driver.FindElement(By.Id("Name")).SendKeys("Bob");
             _driver.FindElement(By.Id("Duration")).SendKeys("42");
             _driver.FindElement(By.Id("AddedDate")).SendKeys("1-1-1996");
-            _driver.FindElement(By.Id("TeacherId")).SendKeys("5");
-            _driver.FindElement(By.ClassName("Button")).Click();
+            _driver.FindElement(By.Id("TeacherId")).SendKeys("2");
+            _driver.FindElement(By.ClassName("btn")).Click();
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 5));
-            _wait.Until(wt => wt.FindElement(By.Id("Success:")).Equals("True"));
+            _wait.Until(wt => wt.FindElement(By.Id("Success")).Text == "True");
             _driver.Close();
             _driver.Dispose();
         }
@@ -58,9 +58,9 @@ namespace testExamProject.Tests
             _driver.Navigate().GoToUrl(url);
             _driver.Manage().Window.Maximize();
             _driver.FindElement(By.Id("Name")).SendKeys("Benglish");
-            _driver.FindElement(By.ClassName("Button")).Click();
+            _driver.FindElement(By.ClassName("btn")).Click();
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 5));
-            _wait.Until(wt => wt.FindElement(By.Id("Success:")).Equals("True"));
+            _wait.Until(wt => wt.FindElement(By.Id("Success")).Text == "True");
             _driver.Close();
             _driver.Dispose();
         }
@@ -74,9 +74,9 @@ namespace testExamProject.Tests
             _driver.Manage().Window.Maximize();
             _driver.FindElement(By.Id("Name")).SendKeys("Bobbob");
             _driver.FindElement(By.Id("Age")).SendKeys("23");
-            _driver.FindElement(By.ClassName("Button")).Click();
+            _driver.FindElement(By.ClassName("btn")).Click();
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 5));
-            _wait.Until(wt => wt.FindElement(By.Id("Success:")).Equals("True"));
+            _wait.Until(wt => wt.FindElement(By.Id("Success")).Text == "True");
             _driver.Close();
             _driver.Dispose();
         }
@@ -91,9 +91,9 @@ namespace testExamProject.Tests
             _driver.FindElement(By.Id("Name")).SendKeys("Trevor");
             _driver.FindElement(By.Id("Education")).SendKeys("Benglish");
             _driver.FindElement(By.Id("Teaching")).Click();
-            _driver.FindElement(By.ClassName("Button")).Click();
+            _driver.FindElement(By.ClassName("btn")).Click();
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 5));
-            _wait.Until(wt => wt.FindElement(By.Id("Success:")).Equals("True"));
+            _wait.Until(wt => wt.FindElement(By.Id("Success")).Text == "True");
             _driver.Close();
             _driver.Dispose();
         }
@@ -105,12 +105,12 @@ namespace testExamProject.Tests
             _driver = new ChromeDriver();
             _driver.Navigate().GoToUrl(url);
             _driver.Manage().Window.Maximize();
-            _driver.FindElement(By.Id("StudentID")).SendKeys("14");
-            _driver.FindElement(By.Id("CourseID")).SendKeys("24");
+            _driver.FindElement(By.Id("StudentId")).SendKeys("14");
+            _driver.FindElement(By.Id("CourseId")).SendKeys("24");
             _driver.FindElement(By.Id("Paid")).Click();
-            _driver.FindElement(By.ClassName("Button")).Click();
+            _driver.FindElement(By.ClassName("btn")).Click();
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 5));
-            _wait.Until(wt => wt.FindElement(By.Id("Success:")).Equals("True"));
+            _wait.Until(wt => wt.FindElement(By.Id("Success")).Text == "True");
             _driver.Close();
             _driver.Dispose();
         }
