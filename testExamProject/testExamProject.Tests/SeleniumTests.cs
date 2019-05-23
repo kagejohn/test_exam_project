@@ -21,6 +21,11 @@ namespace testExamProject.Tests
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Maximize();
+            driver.FindElement(By.Id("CourseID")).SendKeys("2");
+            driver.FindElement(By.Id("SubjectID")).SendKeys("3");
+            driver.FindElement(By.ClassName("Button")).Click();
+            driver.Close();
+            driver.Dispose();
         }
 
         [TestMethod]
@@ -30,6 +35,13 @@ namespace testExamProject.Tests
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Maximize();
+            driver.FindElement(By.Id("Name")).SendKeys("Bob");
+            driver.FindElement(By.Id("Duration")).SendKeys("42");
+            driver.FindElement(By.Id("AddedDate")).SendKeys("1-1-1996");
+            driver.FindElement(By.Id("TeacherId")).SendKeys("5");
+            driver.FindElement(By.ClassName("Button")).Click();
+            driver.Close();
+            driver.Dispose();
         }
 
         [TestMethod]
@@ -39,6 +51,10 @@ namespace testExamProject.Tests
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Maximize();
+            driver.FindElement(By.Id("Name")).SendKeys("Benglish");
+            driver.FindElement(By.ClassName("Button")).Click();
+            driver.Close();
+            driver.Dispose();
         }
 
         [TestMethod]
@@ -48,6 +64,11 @@ namespace testExamProject.Tests
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Maximize();
+            driver.FindElement(By.Id("Name")).SendKeys("Bobbob");
+            driver.FindElement(By.Id("Age")).SendKeys("23");
+            driver.FindElement(By.ClassName("Button")).Click();
+            driver.Close();
+            driver.Dispose();
         }
 
         [TestMethod]
@@ -57,6 +78,12 @@ namespace testExamProject.Tests
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Maximize();
+            driver.FindElement(By.Id("Name")).SendKeys("Trevor");
+            driver.FindElement(By.Id("Education")).SendKeys("Benglish");
+            driver.FindElement(By.Id("Teaching")).Click();
+            driver.FindElement(By.ClassName("Button")).Click();
+            driver.Close();
+            driver.Dispose();
         }
 
         [TestMethod]
@@ -66,6 +93,12 @@ namespace testExamProject.Tests
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Maximize();
+            driver.FindElement(By.Id("StudentID")).SendKeys("14");
+            driver.FindElement(By.Id("CourseID")).SendKeys("24");
+            driver.FindElement(By.Id("Paid")).Click();
+            driver.FindElement(By.ClassName("Button")).Click();
+            driver.Close();
+            driver.Dispose();
         }
     }
 }
