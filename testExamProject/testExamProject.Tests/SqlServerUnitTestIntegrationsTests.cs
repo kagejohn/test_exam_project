@@ -10,10 +10,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace testExamProject.Tests
 {
     [TestClass()]
-    public class SqlServerUnitTest1 : SqlDatabaseTestClass
+    public class SqlServerUnitTestIntegrationsTests : SqlDatabaseTestClass
     {
 
-        public SqlServerUnitTest1()
+        public SqlServerUnitTestIntegrationsTests()
         {
             InitializeComponent();
         }
