@@ -59,7 +59,7 @@ namespace testExamProject.Controllers
             string name = Request["Name"];
             int age = Convert.ToInt32(Request["Age"]);
 
-            _createData.CreateStudents(name, age);
+            ViewBag.Success = _createData.CreateStudents(name, age);
 
             return View("CreateStudent");
         }
@@ -71,7 +71,7 @@ namespace testExamProject.Controllers
             string education = Request["Education"];
             bool teaching = Request["Teaching"] == "true,false" || Request["Teaching"] == "true";
 
-            _createData.CreateTeachers(name, education, teaching);
+            ViewBag.Success = _createData.CreateTeachers(name, education, teaching);
 
             return View("CreateTeacher");
         }
@@ -84,7 +84,7 @@ namespace testExamProject.Controllers
             DateTime addedDate = Request["AddedDate"] == "" ? DateTime.Today : Convert.ToDateTime(Request["AddedDate"]);
             int teacherId = Convert.ToInt32(Request["TeacherId"]);
 
-            _createData.CreateCourses(name, duration, addedDate, teacherId);
+            ViewBag.Success = _createData.CreateCourses(name, duration, addedDate, teacherId);
 
             return View("CreateCourse");
         }
@@ -94,7 +94,7 @@ namespace testExamProject.Controllers
         {
             string name = Request["Name"];
 
-            _createData.CreateSubjects(name);
+            ViewBag.Success = _createData.CreateSubjects(name);
 
             return View("CreateSubject");
         }
@@ -106,7 +106,7 @@ namespace testExamProject.Controllers
             int courseId = Convert.ToInt32(Request["CourseId"]);
             bool paid = Request["Paid"] == "true,false" || Request["Paid"] == "true";
 
-            _createData.CreateCourseParticipations(studentId, courseId, paid);
+            ViewBag.Success = _createData.CreateCourseParticipations(studentId, courseId, paid);
 
             return View("JoinCourse");
         }
@@ -117,7 +117,7 @@ namespace testExamProject.Controllers
             int courseId = Convert.ToInt32(Request["CourseId"]);
             int subjectId = Convert.ToInt32(Request["SubjectId"]);
 
-            _createData.CreateCourseSubjects(subjectId, courseId);
+            ViewBag.Success = _createData.CreateCourseSubjects(subjectId, courseId);
 
             return View("ConnectCourseToSubject");
         }

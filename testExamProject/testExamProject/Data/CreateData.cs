@@ -9,7 +9,7 @@ namespace testExamProject.Data
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        public void CreateStudents(string name, int age)
+        public bool CreateStudents(string name, int age)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -33,12 +33,15 @@ namespace testExamProject.Data
                 }
                 catch (Exception)
                 {
+                    return false;
                     // ignored
                 }
             }
+
+            return true;
         }
 
-        public void CreateTeachers(string name, string education, bool teaching)
+        public bool CreateTeachers(string name, string education, bool teaching)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -63,9 +66,12 @@ namespace testExamProject.Data
                 }
                 catch (Exception)
                 {
+                    return false;
                     // ignored
                 }
             }
+
+            return true;
         }
 
         public void CreateCourses(string name, int duration, int teacherId)
@@ -73,7 +79,7 @@ namespace testExamProject.Data
             CreateCourses(name, duration, DateTime.Today, teacherId);
         }
 
-        public void CreateCourses(string name, int duration, DateTime addedDate, int teacherId)
+        public bool CreateCourses(string name, int duration, DateTime addedDate, int teacherId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -99,12 +105,15 @@ namespace testExamProject.Data
                 }
                 catch (Exception)
                 {
+                    return false;
                     // ignored
                 }
             }
+
+            return true;
         }
 
-        public void CreateCourseParticipations(int studentId, int courseId, bool paid)
+        public bool CreateCourseParticipations(int studentId, int courseId, bool paid)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -129,12 +138,15 @@ namespace testExamProject.Data
                 }
                 catch (Exception)
                 {
+                    return false;
                     // ignored
                 }
             }
+
+            return true;
         }
 
-        public void CreateSubjects(string name)
+        public bool CreateSubjects(string name)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -157,12 +169,15 @@ namespace testExamProject.Data
                 }
                 catch (Exception)
                 {
+                    return false;
                     // ignored
                 }
             }
+
+            return true;
         }
 
-        public void CreateCourseSubjects(int subjectId, int courseId)
+        public bool CreateCourseSubjects(int subjectId, int courseId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -186,9 +201,12 @@ namespace testExamProject.Data
                 }
                 catch (Exception)
                 {
+                    return false;
                     // ignored
                 }
             }
+
+            return true;
         }
     }
 }
