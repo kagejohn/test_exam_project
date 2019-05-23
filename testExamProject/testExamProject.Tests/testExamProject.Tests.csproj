@@ -107,7 +107,7 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="SqlDatabaseSetup.cs" />
     <Compile Include="SqlServerUnitTest1.cs">
-      <SubType>Component</SubType>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
